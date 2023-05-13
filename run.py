@@ -90,3 +90,28 @@ while not game_over:
     # 蛇吃食物
     if snake_x == food_x and snake_y == food_y:
         food_x = round(random.randrange(0, screen_width - food_size) / 20)
+        food_y = round(random.randrange(0, screen_height - food_size) / 20) * 20
+        snake_length += 1
+        score += 1
+
+    # 显示得分
+    score_text = font.render("Score: " + str(score), True, WHITE)
+    screen.blit(score_text, [10, 10])
+
+    # 更新屏幕
+    pygame.display.update()
+
+    # 控制游戏帧率
+    clock.tick(10)  # 控制蛇的移动速度
+
+# 游戏结束后显示最终得分
+game_over_text = font.render("Game Over! Final Score: " + str(score), True, WHITE)
+screen.blit(game_over_text, [screen_width / 2 - 100, screen_height / 2])
+pygame.display.update()
+
+# 停留2秒后退出游戏
+pygame.time.wait(2000)
+
+# 退出游戏
+pygame.quit()
+
