@@ -87,12 +87,13 @@ while not game_over:
 
     snake(snake_size, snake_list)
 
-    # 蛇吃食物
+
     if snake_x == food_x and snake_y == food_y:
-        food_x = round(random.randrange(0, screen_width - food_size) / 20)
+        food_x = round(random.randrange(0, screen_width - food_size) / 20) * 20
         food_y = round(random.randrange(0, screen_height - food_size) / 20) * 20
         snake_length += 1
         score += 1
+
 
     # 显示得分
     score_text = font.render("Score: " + str(score), True, WHITE)
